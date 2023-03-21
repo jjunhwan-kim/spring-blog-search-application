@@ -1,0 +1,8 @@
+openapi:
+  kakao:
+    client-id:
+    client-secret:
+
+  naver:
+    client-id:
+    client-secret:
