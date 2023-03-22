@@ -75,6 +75,10 @@ public class BlogSearchApiService {
 
 	/**
 	 * 블로그 검색 요청 파라미터 값을 검사합니다.
+	 * @throws BlogSearchApiClientErrorException
+	 *          블로그 검색 요청 파라미터가 유효하지 않은 경우,
+	 *          페이지가 1보다 작거나 50보다 큰 경우,
+	 *          사이즈가 1보다 작거나 50보다 큰 경우
 	 * @param request 블로그 검색 요청, 검색 키워드, 정렬, 페이지, 사이즈
 	 */
 	private void validateRequest(BlogSearchRequest request) {
@@ -121,6 +125,10 @@ public class BlogSearchApiService {
 
 	/**
 	 * 외부 블로그 검색 API를 호출하여 검색 결과를 리턴합니다.
+	 * @throws BlogSearchApiClientErrorException
+	 *          외부 블로그 검색 API 응답이 400 오류인 경우
+	 * @throws BlogSearchApiServerErrorException
+	 *          모든 외부 블로그 검색 API를 호출하였으나 정상 응답을 얻지 못하고 500 오류가 리턴되는 경우
 	 * @param request 블로그 검색 API 요청 파라미터
 	 * @return 블로그 검색 API 응답, 총 검색 결과 개수, 검색된 블로그 글 목록
 	 */

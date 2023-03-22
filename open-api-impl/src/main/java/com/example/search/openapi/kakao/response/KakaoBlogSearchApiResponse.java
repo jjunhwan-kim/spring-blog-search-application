@@ -1,11 +1,8 @@
 package com.example.search.openapi.kakao.response;
 
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.example.search.openapi.response.BlogSearchApiResponse;
 import com.example.search.openapi.response.BlogSearchApiResult;

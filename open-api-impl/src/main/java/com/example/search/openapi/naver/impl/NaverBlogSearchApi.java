@@ -10,11 +10,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.example.search.openapi.BlogSearchApi;
 import com.example.search.openapi.exception.BlogSearchApiClientErrorException;
 import com.example.search.openapi.exception.BlogSearchApiServerErrorException;
+import com.example.search.openapi.naver.response.NaverBlogSearchApiErrorResponse;
+import com.example.search.openapi.naver.response.NaverBlogSearchApiResponse;
 import com.example.search.openapi.request.BlogSearchApiRequest;
 import com.example.search.openapi.request.BlogSearchApiSortType;
 import com.example.search.openapi.response.BlogSearchApiResponse;
-import com.example.search.openapi.naver.response.NaverBlogSearchApiErrorResponse;
-import com.example.search.openapi.naver.response.NaverBlogSearchApiResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -51,9 +51,9 @@ public class NaverBlogSearchApi implements BlogSearchApi {
 
 	/**
 	 * 네이버 블로그 검색 API를 호출하여 블로그 글을 검색하여 리턴합니다.
-	 * @throws  BlogSearchApiClientErrorException
+	 * @throws BlogSearchApiClientErrorException
 	 *          네이버 블로그 검색 API 응답이 400 오류인 경우
-	 * @throws  BlogSearchApiServerErrorException
+	 * @throws BlogSearchApiServerErrorException
 	 *          나머지 모든 예외상황
 	 * @param request 블로그 검색 키워드, 정렬 타입, 페이지 번호, 한 페이지에 보여질 문서 수
 	 * @return 총 검색 결과 개수, 검색된 문서 목록

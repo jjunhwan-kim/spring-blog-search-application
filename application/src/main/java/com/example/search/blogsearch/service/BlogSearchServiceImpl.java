@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class BlogSearchServiceImpl implements BlogSearchService{
+public class BlogSearchServiceImpl implements BlogSearchService {
 
 	/**
 	 * JpaRepository 구현체입니다.

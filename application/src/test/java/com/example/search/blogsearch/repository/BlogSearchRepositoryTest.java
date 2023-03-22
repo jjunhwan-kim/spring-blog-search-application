@@ -108,7 +108,8 @@ class BlogSearchRepositoryTest {
 		// Then
 		Assertions.assertThat(foundBlogSearchList)
 			.extracting("word")
-			.containsExactly("word11", "word10", "word9", "word8", "word7", "word6", "word5", "word4", "word3", "word2");
+			.containsExactly("word11", "word10", "word9", "word8", "word7", "word6", "word5", "word4", "word3",
+				"word2");
 		Assertions.assertThat(foundBlogSearchList).extracting("count")
 			.containsExactly(11L, 10L, 9L, 8L, 7L, 6L, 5L, 4L, 3L, 2L);
 	}
