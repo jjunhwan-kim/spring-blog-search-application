@@ -111,9 +111,10 @@ public class BlogSearchApiService {
 			blogSearchService.saveOrUpdateWordCount(word);
 		} catch (DataIntegrityViolationException exception) { // 이미 DB에 존재하는 경우 유니크 제약 조건 예외
 			try {
+				log.info("Insert word statement failed. Try the Update word statement!");
 				blogSearchService.updateWordCount(word);
 			} catch (Exception e) {
-				log.error("Update word count failed!", e);
+				log.error("Update word statement failed!", e);
 			}
 		}
 	}

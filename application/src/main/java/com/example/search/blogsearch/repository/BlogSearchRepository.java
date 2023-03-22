@@ -19,7 +19,7 @@ import jakarta.persistence.LockModeType;
 public interface BlogSearchRepository extends JpaRepository<BlogSearch, Long> {
 
 	/**
-	 * 검색 키워드로 블로그 검색을 조회합니다.
+	 * 검색 키워드로 블로그 검색을 조회합니다. 비관적 락을 사용합니다.
 	 * @param word 검색 키워드
 	 * @return BlogSearch 객체
 	 */
