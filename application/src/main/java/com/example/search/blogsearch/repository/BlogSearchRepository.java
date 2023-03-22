@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.example.search.blogsearch.entity.BlogSearch;
+
+import jakarta.persistence.LockModeType;
 
 /**
  * 블로그 검색 요청을 데이터베이스에 저장합니다.
@@ -20,6 +23,7 @@ public interface BlogSearchRepository extends JpaRepository<BlogSearch, Long> {
 	 * @param word 검색 키워드
 	 * @return BlogSearch 객체
 	 */
+	@Lock(LockModeType.PESSIMISTIC_WRITE)
 	Optional<BlogSearch> findByWord(String word);
 
 	/**

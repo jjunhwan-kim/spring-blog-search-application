@@ -18,10 +18,12 @@ import com.example.search.openapi.request.BlogSearchApiSortType;
 import com.example.search.openapi.response.BlogSearchApiResponse;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 블로그 검색 DB 접근, 외부 서비스 API 호출을 처리합니다.
  */
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class BlogSearchApiService {
@@ -108,7 +110,11 @@ public class BlogSearchApiService {
 		try {
 			blogSearchService.saveOrUpdateWordCount(word);
 		} catch (DataIntegrityViolationException exception) { // 이미 DB에 존재하는 경우 유니크 제약 조건 예외
-			blogSearchService.updateWordCount(word);
+			try {
+				blogSearchService.updateWordCount(word);
+			} catch (Exception e) {
+				log.error("Update word count failed!", e);
+			}
 		}
 	}
 
